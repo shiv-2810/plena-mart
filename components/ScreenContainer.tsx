@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     image: {
         width: 22,
         height: 24,
-        tintColor: 'white'
     },
     itemsCount:{
         position:'absolute',
