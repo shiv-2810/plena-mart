@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../features/products'
 import { AntDesign } from '@expo/vector-icons';
+import HeartIcon from '../components/HeartIcon'
 
 
 const ProductDetailScreen = ({ route }) => {
@@ -19,7 +20,7 @@ const ProductDetailScreen = ({ route }) => {
     const colors = Array(product.images.length).fill("#F5D399")
     const navigation: any = useNavigation()
     const dispatch = useDispatch()
-    const itemAlreadyInCart = cartItems.some((item:any)=>item.productId === product.id)
+    const itemAlreadyInCart = cartItems.some((item:any)=>item?.productId === product?.id)
 
     return (
         <View style={{ backgroundColor: 'white', flex: 1 }}>
@@ -30,7 +31,7 @@ const ProductDetailScreen = ({ route }) => {
                 </View>
                 <View style={{backgroundColor:LIGHTGRAY}}>
                     <View style={styles.favouriteBtn}>
-                        <EvilIcons name="heart" size={26} color="black" />
+                        <HeartIcon parent={true} item={product} />
                     </View>
                     <Carousel
                         loop
@@ -163,7 +164,11 @@ const styles = StyleSheet.create({
         top: 8,
         zIndex: 100,
         backgroundColor: WHITE,
-        borderRadius: 10,
-        padding: 10
+        borderRadius: 15,
+        padding: 10,
+        alignItems:'center',
+        justifyContent:'center',
+        width:50,
+        height:50
     },
 })

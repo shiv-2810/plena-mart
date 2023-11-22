@@ -8,6 +8,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../features/products';
+import HeartIcon from './HeartIcon';
 
 
 
@@ -18,14 +19,14 @@ const Product = ({product}) => {
   
   return (
     <Pressable onPress={()=>navigation.navigate('productDetailScreen',{product})} style={styles.productContainer}>
-    <View style={{padding:15,width:'100%',alignItems:'center'}}>
+    <View style={{padding:10,width:'100%',alignItems:'center',marginTop:20}}>
     <Image source={{uri:product.thumbnail}} style={{width:100,height:100,borderRadius:10}} />
     </View>
-    <EvilIcons style={styles.heartOutline} name="heart" size={27} color="black" />
+    <HeartIcon parent={false} item={product} />
     <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
       <View>
         <Text>{`$${product.price}`}</Text>
-        <Text numberOfLines={2} style={{color:'#616A7D', flex:1}}>{product.title}</Text>
+        <Text numberOfLines={1} style={{color:'#616A7D', flex:1, width:SCREEN_WIDTH/4}}>{product.title}</Text>
       </View>
       <AntDesign onPress={()=>dispatch(addToCart(product.id,product))} name="pluscircle" size={25} color="#2A4BA0"  />
     </View>
