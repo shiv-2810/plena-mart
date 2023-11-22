@@ -10,7 +10,7 @@ const ShoppingCart = () => {
     const price = cart.reduce((acc: any, item: any) => acc += item.product.price * item.quantity, 0)
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: WHITE }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: WHITE, paddingTop:30 }}>
 
             <View style={styles.headerContainer}>
                 <BackButton />

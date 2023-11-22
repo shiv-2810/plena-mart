@@ -10,7 +10,7 @@ const ScreenContainer = ({ children, style, nameShown, tintColor }) => {
     const navigation:any = useNavigation()
     const cartItems = useSelector((state: any) => state.cart)
     return (
-        <SafeAreaView style={{ ...style }}>
+        <SafeAreaView style={{ ...style, paddingTop:35 }}>
             <View style={styles.container}>
                 <View style={styles.header}>
                     {nameShown ? <Text style={styles.headerText}>

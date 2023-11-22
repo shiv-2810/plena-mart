@@ -1,17 +1,15 @@
-import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
-import React from 'react'
-import { LIGHTGRAY } from '../constants/constant'
 import { Ionicons } from '@expo/vector-icons';
+import React from 'react';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { removeFromCart, updateQuantity } from '../features/products';
-import Animated, { BounceIn, BounceInLeft, BounceInRight, BounceOut, FadeIn, FadeOut, Layout } from 'react-native-reanimated';
+import { LIGHTGRAY } from '../constants/constant';
+import { updateQuantity } from '../features/products';
 
 const CartItem = ({ item }) => {
     const { product: { title, thumbnail, price }, quantity = 0, productId } = item
     const dispatch = useDispatch()
     return (
-        <Animated.View entering={BounceInLeft.delay(500)
-            .randomDelay()} exiting={BounceOut} style={styles.container}>
+        <View style={styles.container}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Image source={{ uri: thumbnail }} style={styles.image} />
                 <View>
@@ -28,7 +26,7 @@ const CartItem = ({ item }) => {
                     <Ionicons name="add-outline" size={24} color="black" />
                 </Pressable>
             </View>
-        </Animated.View>
+        </View>
     )
 }
 

@@ -1,6 +1,6 @@
 import { EvilIcons, Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
+import { FlatList, Platform, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, View } from 'react-native';
 import Product from '../components/Product';
 import ScreenContainer from '../components/ScreenContainer';
 import { GRAY_SCALE_BLACK, WHITE } from '../constants/constant';
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
   titleTxt: {
     color: GRAY_SCALE_BLACK,
     fontSize: 11
-  }
+  },
+
 
 })
